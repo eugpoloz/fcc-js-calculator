@@ -1,6 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Calculator from './components/Calculator';
+
+const Container = styled.section`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`;
+
 const Header = styled.header`
   margin-bottom: 2em;
   line-height: 1.5;
@@ -21,14 +33,17 @@ const Heart = styled.span`
 
 function App(props)  {
   return (
-    <Header>
-      <Heading>
-        JavaScript Calculator
-      </Heading>
-      <Subheading>
-        (almost) made with <Heart>❤</Heart> by Evgenia
-      </Subheading>
-    </Header>
+    <Container>
+      <Header>
+        <Heading>
+          JavaScript Calculator
+        </Heading>
+        <Subheading>
+          (almost) made with <Heart>❤</Heart> by Evgenia
+        </Subheading>
+      </Header>
+      <Calculator />
+    </Container>
   );
 }
 
