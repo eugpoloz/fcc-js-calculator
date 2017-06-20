@@ -1,19 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const Header = styled.header`
+  margin-bottom: 2em;
+  line-height: 1.5;
+  text-align: center;
+`;
+
+const Heading = styled.h1`
+  font-size: 4rem;
+`;
+
+const Subheading = styled.p`
+  font-size: inherit;
+`;
+
+const Heart = styled.span`
+  color: rgba(204,0,24,0.8);
+`;
+
+function App(props)  {
+  return (
+    <Header>
+      <Heading>
+        JavaScript Calculator
+      </Heading>
+      <Subheading>
+        (almost) made with <Heart>❤</Heart> by Evgenia
+      </Subheading>
+    </Header>
+  );
 }
 
 export default App;
