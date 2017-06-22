@@ -82,7 +82,7 @@ export const ButtonContainer = styled.div`
   background-color: rgba(255,255,255,0.15);
 `;
 
-export const Button = styled.button`
+export const Button = styled.div`
   order: 0;
   flex: 1 0 ${props => props.flex ? "50%" : "25%"};
   align-self: stretch;
