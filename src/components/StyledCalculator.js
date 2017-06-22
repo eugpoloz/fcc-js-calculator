@@ -83,20 +83,18 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  display: block;
-  width: 25%;
-  margin: 0;
-  padding: 0;
   order: 0;
   flex: 1 0 ${props => props.flex ? "50%" : "25%"};
   align-self: stretch;
-  text-align: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
+  width: 25%;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
   font-size: 2.5rem;
   text-align: center;
