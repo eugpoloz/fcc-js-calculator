@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Calculator from './components/Calculator';
+import Calculator from "./components/Calculator";
 
 const Container = styled.section`
   flex: 1;
@@ -31,7 +31,7 @@ const Heart = styled.span`
   color: rgba(204,0,24,0.8);
 `;
 
-function App(props)  {
+function App(props) {
   return (
     <Container>
       <Header>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -42,10 +42,11 @@ const Result = styled.h2`
 `;
 
 export const ResultEquation = Result.extend`
+  min-height: 30.5px;
   color: rgba(0,0,0,0.75);
 `;
 
-const ResultFinal = Result.withComponent('input');
+const ResultFinal = Result.withComponent("input");
 export const ResultInput = ResultFinal.extend`
   font-weight: inherit;
   font-family: inherit;
@@ -54,6 +55,12 @@ export const ResultInput = ResultFinal.extend`
   background: transparent;
   border: none;
   outline: none;
+  appearance: none;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    display: none;
+  }
 `;
 
 export const LabelHidden = styled.label`
@@ -77,7 +84,7 @@ export const Button = styled.button`
   display: block;
   width: 25%;
   order: 0;
-  flex: 1 0 25%;
+  flex: 1 0 ${props => props.flex ? "50%" : "25%"};
   align-self: stretch;
   text-align: center;
   display: flex;
