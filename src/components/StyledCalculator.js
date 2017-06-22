@@ -48,10 +48,12 @@ export const ResultEquation = Result.extend`
 
 const ResultFinal = Result.withComponent("input");
 export const ResultInput = ResultFinal.extend`
-  font-weight: inherit;
-  font-family: inherit;
-  font-size: 3.6rem;
+  padding: 0;
+  margin: 0;
   width: 100%;
+  font-weight: inherit;
+  font-size: 3.6rem;
+  font-family: inherit;
   background: transparent;
   border: none;
   outline: none;
@@ -83,6 +85,8 @@ export const ButtonContainer = styled.div`
 export const Button = styled.button`
   display: block;
   width: 25%;
+  margin: 0;
+  padding: 0;
   order: 0;
   flex: 1 0 ${props => props.flex ? "50%" : "25%"};
   align-self: stretch;
@@ -95,6 +99,7 @@ export const Button = styled.button`
   align-items: center;
   text-decoration: none;
   font-size: 2.5rem;
+  text-align: center;
   color: currentColor;
   border: none;
   border-top: 1px solid rgba(0,0,0,0.1);
