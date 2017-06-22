@@ -223,7 +223,7 @@ class Calculator extends Component {
           </ResultEquation>
           <LabelHidden>Final Result</LabelHidden>
           <ResultInput
-            type="tel"
+            type="text"
             name="result"
             defaultValue="0"
             innerRef={input => this.input = input}
