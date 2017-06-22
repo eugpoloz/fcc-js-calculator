@@ -1,7 +1,7 @@
 {
   "name": "fcc-js-calculator",
   "version": "0.1.0",
-  "homepage": "https://eugpoloz.github.io/fcc-javascript-calculator",
+  "homepage": "https://eugpoloz.github.io/fcc-js-calculator",
   "private": true,
   "devDependencies": {
     "prettier": "^1.4.4",
