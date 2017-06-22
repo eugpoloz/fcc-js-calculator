@@ -39,7 +39,7 @@ function App(props) {
           JavaScript Calculator
         </Heading>
         <Subheading>
-          (almost) made with <Heart>❤</Heart> by Evgenia
+          made with <Heart>❤</Heart> by Evgenia
         </Subheading>
       </Header>
       <Calculator />
