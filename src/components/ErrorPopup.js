@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
 const Flex = styled.div`
@@ -43,7 +43,7 @@ const Close = styled(Flex)`
 `;
 
 export default function ErrorPopup(props) {
-  return(
+  return (
     <Overlay>
       <Popup>
         {props.children}

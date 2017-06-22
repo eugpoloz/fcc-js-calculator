@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import math from "mathjs";
-import ErrorPopup from './ErrorPopup';
+import ErrorPopup from "./ErrorPopup";
 import {
   Container,
   ResultContainer,
@@ -37,9 +37,11 @@ class Calculator extends Component {
 
   addToEquation = key => {
     if (this.input.value !== "0") {
-      this.setState({
-        equation: this.state.equation + `${this.input.value} ${key ? key : ""} `
-      },
+      this.setState(
+        {
+          equation: this.state.equation +
+            `${this.input.value} ${key ? key : ""} `
+        },
         () => this.input.value = "0"
       );
     }
@@ -57,7 +59,8 @@ class Calculator extends Component {
       }
     }
 
-    this.setState({
+    this.setState(
+      {
         equation: this.state.equation + `${this.input.value}`,
         isResult: true
       },
@@ -72,7 +75,7 @@ class Calculator extends Component {
     return (this.input.value += key);
   };
 
-  updateValue = (e) => {
+  updateValue = e => {
     this.clearResult(e.key);
 
     const key = e.keyCode;
@@ -81,22 +84,28 @@ class Calculator extends Component {
       return this.returnResult();
     }
 
-    if (e.target.tagName.toLowerCase() === 'input') {
+    if (e.target.tagName.toLowerCase() === "input") {
       return;
     }
-    
+
     if ((key > 47 && key < 58) || key === 190) {
       return this.updateInputWithKey(e.key);
-    } else if (key === 189 || (!e.shiftKey && key === 191) || (e.shiftKey && key === 56) || (e.shiftKey && key === 187)) {
+    } else if (
+      key === 189 ||
+      (!e.shiftKey && key === 191) ||
+      (e.shiftKey && key === 56) ||
+      (e.shiftKey && key === 187)
+    ) {
       return this.updateInputWithKey(e.key);
     } else if (key === 67) {
       return this.clearAll(e);
     }
   };
 
-  clearResult = (key) => {
+  clearResult = key => {
     if (this.state.isResult) {
-      return this.setState({
+      return this.setState(
+        {
           equation: "",
           isResult: false,
           isError: false,
@@ -108,7 +117,7 @@ class Calculator extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener('keydown', this.updateValue);
+    window.addEventListener("keydown", this.updateValue);
   }
 
   render() {
@@ -222,8 +231,7 @@ class Calculator extends Component {
         {this.state.isError &&
           <ErrorPopup onClick={() => this.clearResult("0")}>
             {this.state.errorText}
-          </ErrorPopup>
-        }
+          </ErrorPopup>}
       </Container>
     );
   }
