@@ -16,6 +16,7 @@ class Calculator extends Component {
     equation: "",
     isResult: false,
     isError: false,
+    previousOperation: "+",
     errorText: ""
   };
 
@@ -36,35 +37,16 @@ class Calculator extends Component {
   };
 
   addToEquation = key => {
-    if (this.input.value !== "0") {
-      this.setState(
-        {
-          equation: this.state.equation +
-            `${this.input.value} ${key ? key : ""} `
-        },
-        () => this.input.value = "0"
-      );
-    }
-  };
+    let keyValue = `${this.input.value}${key ? key : ""}`;
+    let equation = this.state.equation + keyValue;
 
-  returnResult = () => {
-    function evalResult() {
-      try {
-        this.input.value = math.eval(this.state.equation);
-      } catch (e) {
-        this.setState({
-          isError: true,
-          errorText: "Your input is invalid! Please provide a correct math expression and try again."
-        });
-      }
+    if (this.state.isResult) {
+      equation = keyValue;
     }
 
     this.setState(
-      {
-        equation: this.state.equation + `${this.input.value}`,
-        isResult: true
-      },
-      evalResult
+      { equation, isResult: false, previousOperation: key },
+      () => this.input.value = "0"
     );
   };
 
@@ -101,6 +83,37 @@ class Calculator extends Component {
   //     return this.clearAll(e);
   //   }
   // };
+
+  returnResult = () => {
+    function evalResult() {
+      try {
+        this.input.value = math.eval(this.state.equation);
+      } catch (e) {
+        this.setState({
+          isError: true,
+          errorText: "Your input is invalid! Please provide a correct math expression and try again."
+        });
+      }
+    }
+
+    let equation = this.state.equation + `${this.input.value}`,
+      lastChar = parseFloat(
+        this.state.equation.substr(this.state.equation.length - 1)
+      );
+
+    if (!isNaN(lastChar)) {
+      equation = this.state.equation +
+        `${this.state.previousOperation}${this.input.value}`;
+    }
+
+    this.setState(
+      {
+        equation,
+        isResult: true
+      },
+      evalResult
+    );
+  };
 
   clearResult = key => {
     if (this.state.isResult) {
