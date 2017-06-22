@@ -75,32 +75,32 @@ class Calculator extends Component {
     return (this.input.value += key);
   };
 
-  updateValue = e => {
-    this.clearResult(e.key);
+  // updateValue = e => {
+  //   this.clearResult(e.key);
 
-    const key = e.keyCode;
+  //   const key = e.keyCode;
 
-    if ((!e.shiftKey && key === 187) || key === 13) {
-      return this.returnResult();
-    }
+  //   if ((!e.shiftKey && key === 187) || key === 13) {
+  //     return this.returnResult();
+  //   }
 
-    if (e.target.tagName.toLowerCase() === "input") {
-      return;
-    }
+  //   if (e.target.tagName.toLowerCase() === "input") {
+  //     return;
+  //   }
 
-    if ((key > 47 && key < 58) || key === 190) {
-      return this.updateInputWithKey(e.key);
-    } else if (
-      key === 189 ||
-      (!e.shiftKey && key === 191) ||
-      (e.shiftKey && key === 56) ||
-      (e.shiftKey && key === 187)
-    ) {
-      return this.updateInputWithKey(e.key);
-    } else if (key === 67) {
-      return this.clearAll(e);
-    }
-  };
+  //   if ((key > 47 && key < 58) || key === 190) {
+  //     return this.updateInputWithKey(e.key);
+  //   } else if (
+  //     key === 189 ||
+  //     (!e.shiftKey && key === 191) ||
+  //     (e.shiftKey && key === 56) ||
+  //     (e.shiftKey && key === 187)
+  //   ) {
+  //     return this.updateInputWithKey(e.key);
+  //   } else if (key === 67) {
+  //     return this.clearAll(e);
+  //   }
+  // };
 
   clearResult = key => {
     if (this.state.isResult) {
@@ -116,9 +116,9 @@ class Calculator extends Component {
     }
   };
 
-  componentDidMount() {
-    window.addEventListener("keydown", this.updateValue);
-  }
+  // componentDidMount() {
+  //   window.addEventListener("keydown", this.updateValue);
+  // }
 
   render() {
     const buttonConfig = [
